@@ -22,10 +22,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function() {
     Route::middleware('auth:sanctum')->group(function () {
+        //apiResource provides all the 5 endpoints
         Route::apiResource('album', AlbumController::class);
         Route::get('image', [ImageManipulationController::class, 'index']);
         Route::get('image/by-album/{album}', [ImageManipulationController::class, 'getByAlbum']);
         Route::post('image/resize', [ImageManipulationController::class, 'resize']);
+        Route::get('image/{image}',[ImageManipulationController::class,'show']);
         Route::delete('image/{image}', [ImageManipulationController::class, 'destroy']);
     });
 });
