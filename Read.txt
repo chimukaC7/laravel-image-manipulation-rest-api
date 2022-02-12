@@ -3,3 +3,7 @@ $ php artisan make:controller V1\\AlbumController --requests --api
 $ php artisan make:controller V1\\ImageManipulationController --mode=ImageManipulation --requests --api
 $ php artisan make:resource V1\\AlbumResource
 $ php artisan make:resource V1\\ImageManipulationResource
+
+
+$ ss-keygen -o
+$ cat ~/.ssh/id_rsa.pub
