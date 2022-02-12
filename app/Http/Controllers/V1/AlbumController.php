@@ -17,6 +17,7 @@ class AlbumController extends Controller
      */
     public function index(Request $request)
     {
+
         return AlbumResource::collection(Album::where('user_id', $request->user()->id)->paginate());
     }
 
@@ -41,7 +42,7 @@ class AlbumController extends Controller
      */
     public function show(Request $request, Album $album)
     {
-        if ($album->user_id != $request->user()->id) {
+        if ($album->user_id != $request->user()->id) {//if user is owner of that album
             return abort(403, 'Unauthorized action.');
         }
         return new AlbumResource($album);

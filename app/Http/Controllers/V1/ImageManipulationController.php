@@ -25,6 +25,11 @@ class ImageManipulationController extends Controller
     {
         return ImageManipulationResource::collection(ImageManipulation::where('user_id', $request->user()->id)->paginate());
     }
+
+    public function show(ImageManipulation $image){
+        return new ImageManipulationResource($image);
+
+    }
     /**
      * Display a listing of the resource.
      *

@@ -21,10 +21,10 @@ class DashboardController extends Controller
 {
     public function dashboard(Request $request)
     {
-        $user = $request->user();
+        $user = $request->user();//get the authenticated user
 
         return view('dashboard', [
-            'tokens' => $user->tokens
+            'tokens' => $user->tokens//get the user tokens
         ]);
     }
 
@@ -38,9 +38,10 @@ class DashboardController extends Controller
         $request->validate([
             'name' => 'required'
         ]);
+
         $tokenName = $request->post('name');
 
-        $user = $request->user();
+        $user = $request->user();//get the authenticated user
         $token = $user->createToken($tokenName);
 
         return view('token-show', [
